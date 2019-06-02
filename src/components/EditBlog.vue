@@ -46,7 +46,7 @@ export default {
     post: function() {
       this.$http
         .put(
-          "https://do-myself-blog.firebaseio.com/blogs/" + this.id + ".json",
+          "https://vueblog-734b2.firebaseio.com/blogs/" + this.id + ".json",
           this.blog
         )
         .then(response => {
@@ -56,7 +56,7 @@ export default {
   },
   created() {
     this.$http
-      .get("https://do-myself-blog.firebaseio.com/blogs/" + this.id + ".json")
+      .get("https://vueblog-734b2.firebaseio.com/blogs/" + this.id + ".json")
       .then(data => {
         return data.json();
       })

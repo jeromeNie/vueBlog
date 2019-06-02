@@ -1,13 +1,21 @@
 <template>
   <div class="blog-header">
-    <router-link class="btn btn-danger" to="/" exact>首页</router-link>
-    <router-link class="btn btn-danger" to="/post" exact>写博客</router-link>
+    <router-link class="btn btn-danger" to="/home" exact>首页</router-link>
+    <router-link class="btn btn-danger" to="/post" exact @click.native="confirm">写博客</router-link>
   </div>
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
-  name: "blog-header"
+  name: "blog-header",
+  methods: {
+    confirm() {
+      if (!firebase.auth().currentUser) {
+        alert("登录后才能发布博客！");
+      }
+    }
+  }
 };
 </script>
 

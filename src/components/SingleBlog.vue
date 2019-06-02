@@ -7,7 +7,7 @@
         <p>作者：{{blog.authorName}}</p>
         <ul>
           <span>分类：</span>
-          <li v-for="categoray in blog.categories">{{categoray}}</li>
+          <li v-for="(categoray,index) in blog.categories" :key="index">{{categoray}}</li>
         </ul>
       </div>
       <div class="btngroup">
@@ -31,7 +31,7 @@ export default {
     deleteBlog: function() {
       this.$http
         .delete(
-          "https://do-myself-blog.firebaseio.com/blogs/" + this.id + ".json"
+          "https://vueblog-734b2.firebaseio.com/blogs/" + this.id + ".json"
         )
         .then(response => {
           this.$router.push({ path: "/" });
@@ -43,7 +43,7 @@ export default {
   },
   created() {
     this.$http
-      .get("https://do-myself-blog.firebaseio.com/blogs/" + this.id + ".json")
+      .get("https://vueblog-734b2.firebaseio.com/blogs/" + this.id + ".json")
       .then(data => {
         return data.json();
       })

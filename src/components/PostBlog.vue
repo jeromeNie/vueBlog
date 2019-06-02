@@ -49,7 +49,7 @@ export default {
   methods: {
     post: function() {
       this.$http
-        .post("https://do-myself-blog.firebaseio.com/blogs.json", this.blog)
+        .post("https://vueblog-734b2.firebaseio.com/blogs.json", this.blog)
         .then(response => {
           this.submmited = true;
         });
